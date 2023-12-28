@@ -2,17 +2,17 @@
     <h1>Where to go?</h1>
     <div class="random-machine">
         <div class="content-box">
-            <div class="content-slider" [style.transform]="transform">
-                <ng-container *ngFor="let idea of ideaList">
-                    <div class="content">
-                        <h2 class="name">{{ idea.name }}</h2>
-                        <img [src]="idea.img">
-                    </div>
-                </ng-container>
-            </div>
+            <ng-container *ngFor="let idea of ideaList; index as i">
+                <div class="content"
+                [ngClass]="transform(idea.state)"
+                (transitionend)="tend(idea)">
+                    <h2 class="name">{{ idea.name }}</h2>
+                    <img [src]="idea.img">
+                </div>
+            </ng-container>
         </div>
-        <button (click)="reset()">Reset</button>
         <button (click)="start()">Start</button>
+        <button (click)="stop()">Stop</button>
     </div>
     
     <ng-container *ngIf="targetIdea">
