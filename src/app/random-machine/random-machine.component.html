@@ -5,14 +5,14 @@
             <ng-container *ngFor="let idea of ideaList; index as i">
                 <div class="content"
                 [ngClass]="transform(idea.state)"
-                (transitionend)="tend(idea)">
+                (transitionend)="transEnd(idea)">
                     <h2 class="name">{{ idea.name }}</h2>
                     <img [src]="idea.img">
                 </div>
             </ng-container>
         </div>
-        <button (click)="start()">Start</button>
-        <button (click)="stop()">Stop</button>
+        <button (click)="start()" [disabled]="isStart">Start</button>
+        <button (click)="stop()" [disabled]="!isStart">Stop</button>
     </div>
     
     <ng-container *ngIf="targetIdea">

@@ -1,0 +1,24 @@
+<div class="slot-machine">
+    <ul class="slot">
+        <ng-container *ngFor="let dish of dishes">
+            <li class="item"
+            [ngClass]="transform(dish.state)">{{ dish.name }}</li>
+        </ng-container>
+    </ul>
+    <ul class="slot">
+        <ng-container *ngFor="let fruit of fruits">
+            <li class="item">{{ fruit.name }}</li>
+        </ng-container>
+    </ul>
+    <ul class="slot">
+        <ng-container *ngFor="let dessert of desserts">
+            <li class="item">{{ dessert.name }}</li>
+        </ng-container>
+    </ul>
+    <ul class="slot">
+        <ng-container *ngFor="let drink of drinks">
+            <li class="item">{{ drink.name }}</li>
+        </ng-container>
+    </ul>
+    <button (click)="start()">bar</button>
+</div>

@@ -1,0 +1,76 @@
+<section class="img-converter">
+    <h2>Image Converter</h2>
+
+    <div class="container">
+        <div class="setting">
+            <div class="area hr">
+                <!-- <h3>Input either file or folder path.</h3> -->
+        
+                <label>Input File
+                    <input type="file" name="raw" accept="image/*" multiple (change)="upload($event)" [disabled]="inputPath">
+                </label>
+            
+                <!-- <label>Input Folder Path
+                    <input type="text" [(ngModel)]="inputPath" [disabled]="files.length>0">
+                </label> -->
+            </div>
+        
+            <div class="area hr">
+                <label>Output Folder Path
+                    <input type="text" [(ngModel)]="outputPath">
+                </label>
+            </div>
+        
+            <div class="area hr">
+                <h3>Set all images with same size.</h3>
+                <label>Apply to all
+                    <input type="checkbox" name="applyall" [(ngModel)]="uniform">
+                </label>
+                
+                <label>Keep Aspect Ratio
+                    <input type="checkbox" name="keepRatio" [checked]="uniSize.keepRatio" (change)="setUniRatio($event)" [disabled]="!uniform">
+                </label>
+        
+                <label>Width(px)
+                    <input type="number" name="width" [value]="uniSize.width" (input)="setUniWidth($event)" [disabled]="!uniform">
+                </label>
+                
+                <label>Height(px)
+                    <input type="number" name="height" [value]="uniSize.height" (input)="setUniHeight($event)" [disabled]="!uniform">
+                </label>
+            </div>
+
+            <div class="area">
+                <button (click)="convert()">Convert</button>
+            </div>
+        </div>
+    
+        <div class="content">
+            <ul class="list">
+                <ng-container *ngFor="let file of files">
+                    <li class="list-item">
+                        <div class="imgBox">
+                            <img #imgprev [src]="file.url" [alt]="file.name" (load)="imgOnLoad(imgprev, file)">
+                        </div>
+        
+                        <label>File Name
+                            <input type="text" [(ngModel)]="file.name">
+                        </label>
+        
+                        <label>Width(px)
+                            <input type="number" [value]="file.width" (input)="setWidth($event, file)" [disabled]="uniform">
+                        </label>
+                        
+                        <label>Height(px)
+                            <input type="number" [value]="file.height" (input)="setHeight($event, file)"  [disabled]="uniform">
+                        </label>
+                        
+                        <label>Keep Aspect Ratio
+                            <input type="checkbox" [(ngModel)]="file.keepRatio" [disabled]="uniform">
+                        </label>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</section>

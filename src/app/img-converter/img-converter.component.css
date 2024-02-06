@@ -1,0 +1,55 @@
+label {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+label input:not([type="checkbox"]) {
+    width: 100%;
+    box-sizing: border-box;
+}
+h3 {
+    margin-top: 0;
+}
+
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.setting {
+    width: 360px;
+}
+.content {
+    flex-grow: 1;
+    padding: 2em;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.list-item {
+    max-width: 150px;
+}
+.imgBox {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+.imgBox img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.area {
+    padding: 1em;
+}
+.area.hr {
+    border-bottom: 1px solid orange;
+}

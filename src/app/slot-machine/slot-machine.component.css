@@ -1,0 +1,32 @@
+.slot-machine {
+    display: flex;
+    gap: 1em;
+}
+
+.slot {
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    border: 1px solid orange;
+    box-sizing: border-box;
+}
+
+.item {
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    transform: translateY(0);
+    transition: none;
+}
+
+.item.prev,
+.item.active,
+.item.next {
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: 1s;
+    transform: translateY(-100%);
+}

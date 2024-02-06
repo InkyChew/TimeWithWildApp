@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable, concatMap, delay, observable, of, switchMap, timer } from 'rxjs';
-const HEIGHT: number = 300;
+import { delay, of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-random-machine',
@@ -51,7 +50,7 @@ export class RandomMachineComponent implements OnInit {
     this.isStart = false;
   }
 
-  tend(idea: Idea) {
+  transEnd(idea: Idea) {
     if(this.ideaList) {
       switch(idea.state) {
         case SlideState.Prev:
